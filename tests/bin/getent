@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if ! [ -f passwd ]; then
+	echo "Missing passwd file in the current directory"
+	exit 1
+fi
+
+if [ "x$1" != "xpasswd" ]; then
+	echo "Operawtion not supported"
+	exit 2
+fi
+
+grep "^$2:" passwd
