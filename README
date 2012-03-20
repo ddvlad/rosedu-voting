@@ -15,8 +15,6 @@ Results are placed in results.txt, with individual votes in the votes/
 directory.  There is no way that I know of to find out who voted for who.
 
 TODOs:
-* it is currently an error if someone casts fewer votes than configured.  We
-should decide if that is the desired behaviour.
 * if vote files contain blank lines, they are counted as individual votes.
 We should filter out blank or whitespace-only lines.
 

@@ -85,18 +85,13 @@ check_user_vote() {
 		return
 	fi
 
-	# Check correct number of votes.
-	# TODO should we warn when too few votes or not?
+	# Check correct number of votes.  We allow fewer votes than
+	# configured.
 	count=$(cat $votefile | wc -l)
 	if [ $count -gt $num_votes ]; then
 		echo "$user - too many votes"
 		error=1
 		return
-	fi
-	if [ $count -lt $num_votes ]; then
-		echo "$user - too few votes"
-		error=1
-		# But proceed, in case they also misspelled names.
 	fi
 
 	# Check that votes are actually listed candidates.
