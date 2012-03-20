@@ -6,7 +6,7 @@ if ! [ -f passwd ]; then
 fi
 
 if [ "x$1" != "xpasswd" ]; then
-	echo "Operawtion not supported"
+	echo "Operation not supported"
 	exit 2
 fi
 
