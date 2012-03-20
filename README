@@ -14,8 +14,4 @@ Config files:
 Results are placed in results.txt, with individual votes in the votes/
 directory.  There is no way that I know of to find out who voted for who.
 
-TODOs:
-* if vote files contain blank lines, they are counted as individual votes.
-We should filter out blank or whitespace-only lines.
-
 Patches are welcome, of course, use github or email.

@@ -87,7 +87,7 @@ check_user_vote() {
 
 	# Check correct number of votes.  We allow fewer votes than
 	# configured.
-	count=$(cat $votefile | wc -l)
+	count=$(cat $votefile | grep -Pv '^[ \t]*$' | wc -l)
 	if [ $count -gt $num_votes ]; then
 		echo "$user - too many votes"
 		error=1
@@ -103,7 +103,8 @@ check_user_vote() {
 	done
 
 	# Check that the user has not voted with same candidate twice.
-	sorted_count=$(cat $votefile | sed 's/ //g' | sort | uniq | wc -l)
+	sorted_count=$(cat $votefile | grep -Pv '^[ \t]*$' | \
+			sed 's/ //g' | sort | uniq | wc -l)
 	if [ $count -ne $sorted_count ]; then
 		echo "$user - voted for same person twice"
 		error=1
